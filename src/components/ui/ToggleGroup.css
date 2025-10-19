@@ -1,0 +1,19 @@
+.toggle-group {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-item {
+  background: #fff3d8;
+  border: 1px solid #a24a17;
+  color: #a24a17;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.toggle-item.active {
+  background: #a24a17;
+  color: white;
+}

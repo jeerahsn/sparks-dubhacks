@@ -1,38 +1,136 @@
-.App {
-  text-align: center;
+/* === sprk Global Styles === */
+
+/* Root theme colors */
+:root {
+  --sprk-primary: #a24a17; /* warm terracotta-brown */
+  --sprk-secondary: #fbc8a8; /* peach accent */
+  --sprk-bg: #fff3d8; /* soft cream background */
+  --sprk-text: #2e2e2e;
+  --sprk-radius: 12px;
+  --sprk-gradient: linear-gradient(135deg, #fff3d8, #fbc8a8);
+  font-family: "Poppins", "Inter", system-ui, sans-serif;
+  color-scheme: light;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Center app layout */
+#root {
   min-height: 100vh;
+  background: var(--sprk-gradient);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  text-align: center;
+  color: var(--sprk-text);
+  padding: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  color: var(--sprk-primary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+p {
+  color: #444;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* === Buttons === */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--sprk-radius);
+  padding: 0.8rem 1.4rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  background: var(--sprk-primary);
+  color: #fff;
+}
+
+button:hover {
+  background: #8a3d11;
+  transform: scale(1.02);
+}
+
+button:disabled {
+  background: #ddd;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* === Cards === */
+.card {
+  background: #fff;
+  border-radius: var(--sprk-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* === Textarea / Inputs === */
+textarea,
+input {
+  width: 100%;
+  border-radius: var(--sprk-radius);
+  border: 1px solid #ccc;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border: 1px solid var(--sprk-primary);
+  box-shadow: 0 0 0 2px rgba(162, 74, 23, 0.2);
+}
+
+/* === Gradient Text === */
+.gradient-text {
+  background: linear-gradient(90deg, #a24a17, #fbc8a8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* === Spark Animation === */
+@keyframes spark {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7) rotate(30deg);
   }
 }
+
+.spark-animation {
+  animation: spark 1.2s ease-in-out forwards;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;

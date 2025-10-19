@@ -1,0 +1,15 @@
+.toggle {
+  background: #fff3d8;
+  color: #a24a17;
+  border: 1px solid #a24a17;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.toggle.active {
+  background: #a24a17;
+  color: white;
+}
