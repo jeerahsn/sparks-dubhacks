@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SplashScreen from "./screens/SplashScreen";
 import PreferencesScreen from "./screens/PreferencesScreen";
 import AdditionalValuesScreen from "./screens/AdditionalValuesScreen";
+import CategoriesScreen from "./screens/CategoriesScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,8 @@ export default function App() {
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Preferences" component={PreferencesScreen} />
         <Stack.Screen name="AdditionalValues" component={AdditionalValuesScreen} />
+        <Stack.Screen name="Categories" component={CategoriesScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

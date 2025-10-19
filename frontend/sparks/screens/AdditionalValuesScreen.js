@@ -4,6 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function AdditionalValuesScreen({ navigation, route }) {
+
+
     const [text, setText] = useState("");
     const { selectedValues } = route.params || {}; // safely receive passed data
 
@@ -15,7 +17,7 @@ export default function AdditionalValuesScreen({ navigation, route }) {
         console.log("Saving to Cloudflare:", data);
 
         // ✅ navigate back or forward after saving
-        navigation.navigate("Preferences"); // or replace with next screen later
+        navigation.replace("Categories", { userName: "Zahra" });// or replace with next screen later
     };
 
     return (
