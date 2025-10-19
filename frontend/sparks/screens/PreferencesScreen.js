@@ -11,7 +11,7 @@ const VALUES = [
   { id: "affordable", label: "Affordable" },
 ];
 
-export default function PreferencesScreen() {
+export default function PreferencesScreen({ navigation }) {
   const [selected, setSelected] = useState([]);
 
   const toggleValue = (id) => {
@@ -22,10 +22,11 @@ export default function PreferencesScreen() {
     }
   };
 
-  const handleNext = async () => {
-    console.log("Selected values:", selected);
-    // placeholder for Cloudflare KV integration (coming soon)
+  const handleNext = () => {
+    navigation.navigate("AdditionalValues", { selectedValues: selected });
+    //place holder
   };
+
 
   return (
     <LinearGradient

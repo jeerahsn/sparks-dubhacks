@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { View, Image, Text, StyleSheet, SafeAreaView } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts, Quicksand_700Bold } from "@expo-google-fonts/quicksand";
 
 export default function SplashScreen({ navigation }) {
-  // ✅ Always call hooks first
   const [fontsLoaded] = useFonts({ Quicksand_700Bold });
 
   useEffect(() => {
@@ -16,13 +16,8 @@ export default function SplashScreen({ navigation }) {
     }
   }, [fontsLoaded, navigation]);
 
-  // ✅ Now safely return conditional UI
   if (!fontsLoaded) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading...</Text>
-      </View>
-    );
+    return null;
   }
 
   return (
