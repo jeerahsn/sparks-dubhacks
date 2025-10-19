@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import { Toaster } from "./components/ui/Toaster"; // your toast component
+import  Toaster  from "./components/ui/Toaster"; // your toast component
 import "./App.css";
 
 export default function App() {
