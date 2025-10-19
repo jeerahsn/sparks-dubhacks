@@ -3,15 +3,17 @@ import { View, Image, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts, Quicksand_700Bold } from "@expo-google-fonts/quicksand";
+import { useNavigation } from "@react-navigation/native";
 
-export default function SplashScreen({ navigation }) {
+export default function SplashScreen() {
+  const navigation = useNavigation();
   const [fontsLoaded] = useFonts({ Quicksand_700Bold });
 
   useEffect(() => {
     if (fontsLoaded) {
       const timer = setTimeout(() => {
-        navigation.replace("Preferences");
-      }, 2000);
+        if (navigation?.replace) navigation.replace("Preferences");
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [fontsLoaded, navigation]);
@@ -40,9 +42,7 @@ export default function SplashScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  container: { flex: 1 },
   center: {
     flex: 1,
     justifyContent: "center",
@@ -59,15 +59,5 @@ const styles = StyleSheet.create({
     fontSize: 52,
     color: "#8A3E18",
     letterSpacing: 1,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFE6C5",
-  },
-  loadingText: {
-    color: "#8A3E18",
-    fontSize: 20,
   },
 });

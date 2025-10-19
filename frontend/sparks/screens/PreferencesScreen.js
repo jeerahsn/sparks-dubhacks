@@ -23,7 +23,7 @@ export default function PreferencesScreen({ navigation }) {
   };
 
   const handleNext = () => {
-    navigation.navigate("AdditionalValues", { selectedValues: selected });
+    navigation.navigate("AdditionalValues");
     //place holder
   };
 

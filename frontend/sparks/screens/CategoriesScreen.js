@@ -12,17 +12,15 @@ import { View, Text, TouchableOpacity, StyleSheet /*, Image */ } from "react-nat
 import { LinearGradient } from "expo-linear-gradient";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-
 // Commented out icons for now
 // import clothingIcon from "../assets/clothing.png";
 // import jewelryIcon from "../assets/jewelry.png";
 // import bagsIcon from "../assets/bag.png";
 // import footwearIcon from "../assets/shoes.png";
 
-export default function CategoriesScreen({ route }) {
-    // Receive user name if passed from previous screen
+export default function CategoriesScreen({ navigation, route }) {
     const { userName } = route.params || {};
-    const displayName = userName || "User"; // fallback placeholder
+    const displayName = userName || "User";
 
     const categories = [
         { id: "clothing", label: "Clothing" /*, icon: clothingIcon */ },
@@ -30,6 +28,14 @@ export default function CategoriesScreen({ route }) {
         { id: "bags", label: "Bags" /*, icon: bagsIcon */ },
         { id: "footwear", label: "Footwear" /*, icon: footwearIcon */ },
     ];
+
+    const handleCategoryPress = (categoryId) => {
+        if (categoryId === "clothing") {
+            navigation.navigate("Clothing");
+        } else {
+            console.log(`Clicked ${categoryId} (placeholder)`);
+        }
+    };
 
     return (
         <LinearGradient
@@ -42,7 +48,11 @@ export default function CategoriesScreen({ route }) {
                 <Text style={styles.title}>Welcome, {displayName}!</Text>
 
                 {categories.map((cat) => (
-                    <TouchableOpacity key={cat.id} style={styles.card}>
+                    <TouchableOpacity
+                        key={cat.id}
+                        style={styles.card}
+                        onPress={() => handleCategoryPress(cat.id)}
+                    >
                         {/* <Image source={cat.icon} style={styles.icon} resizeMode="contain" /> */}
                         <Text style={styles.cardText}>{cat.label}</Text>
                     </TouchableOpacity>
